@@ -1,10 +1,12 @@
 const CACHE_NAME = 'dino-game-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/game.js',
-  '/manifest.json'
+  '/t-mobile/',
+  '/t-mobile/index.html',
+  '/t-mobile/style.css',
+  '/t-mobile/game.js',
+  '/t-mobile/manifest.json',
+  '/t-mobile/icon-192.png',
+  '/t-mobile/icon-512.png'
 ];
 
 // Install service worker and cache assets
