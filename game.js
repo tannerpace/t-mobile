@@ -81,10 +81,12 @@ const dino = {
       this.dy += gravity;
       this.grounded = false;
     } else {
-      this.dy = 0;
       this.y = 150;
       this.grounded = true;
       this.jumping = false;
+      if (this.dy > 0) {
+        this.dy = 0;
+      }
     }
 
     this.y += this.dy;
