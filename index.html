@@ -18,6 +18,9 @@
   <meta name="apple-mobile-web-app-title" content="Dino Game">
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Environment Configuration -->
+  <script src="config.js"></script>
 </head>
 
 <body>
@@ -34,17 +37,37 @@
   </div>
   <script src="game.js"></script>
   <script>
-    // Register service worker for PWA
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/t-mobile/service-worker.js')
-          .then((registration) => {
-            console.log('ServiceWorker registration successful');
-          })
-          .catch((err) => {
-            console.log('ServiceWorker registration failed: ', err);
-          });
-      });
+    // Update manifest path dynamically based on environment
+    if (window.ENV_CONFIG) {
+      const manifestLink = document.querySelector('link[rel="manifest"]');
+      if (manifestLink) {
+        manifestLink.href = ENV_CONFIG.getAssetPath('manifest.json');
+      }
+
+      const appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+      if (appleIcon) {
+        appleIcon.href = ENV_CONFIG.getAssetPath('icon-192.png');
+      }
+    }
+
+    // Register service worker for PWA (only for non-vscode environments)
+    if ('serviceWorker' in navigator && window.ENV_CONFIG) {
+      const isVSCode = ENV_CONFIG.isVSCodeDev() || ENV_CONFIG.isVSCodeCom();
+
+      if (!isVSCode) {
+        window.addEventListener('load', () => {
+          const swPath = ENV_CONFIG.getAssetPath('service-worker.js');
+          navigator.serviceWorker.register(swPath)
+            .then((registration) => {
+              console.log('ServiceWorker registration successful');
+            })
+            .catch((err) => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      } else {
+        console.log('Running in VS Code environment - Service Worker disabled');
+      }
     }
   </script>
 </body>

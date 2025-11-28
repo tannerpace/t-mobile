@@ -1,12 +1,33 @@
 const CACHE_NAME = 'dino-game-v1';
+
+// Get base path dynamically
+const getBasePath = () => {
+  const location = self.location;
+  const isVSCode = location.hostname.includes('vscode.dev') || location.hostname.includes('vscode.com');
+
+  if (isVSCode) {
+    const pathParts = location.pathname.split('/').filter(p => p);
+    if (pathParts.includes('github')) {
+      const githubIndex = pathParts.indexOf('github');
+      return '/' + pathParts.slice(0, githubIndex + 3).join('/');
+    }
+    return '/t-mobile';
+  }
+
+  return '/t-mobile';
+};
+
+const BASE_PATH = getBasePath();
+
 const urlsToCache = [
-  '/t-mobile/',
-  '/t-mobile/index.html',
-  '/t-mobile/style.css',
-  '/t-mobile/game.js',
-  '/t-mobile/manifest.json',
-  '/t-mobile/icon-192.png',
-  '/t-mobile/icon-512.png'
+  `${BASE_PATH}/`,
+  `${BASE_PATH}/index.html`,
+  `${BASE_PATH}/style.css`,
+  `${BASE_PATH}/game.js`,
+  `${BASE_PATH}/config.js`,
+  `${BASE_PATH}/manifest.json`,
+  `${BASE_PATH}/icon-192.png`,
+  `${BASE_PATH}/icon-512.png`
 ];
 
 // Install service worker and cache assets
