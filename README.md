@@ -19,16 +19,43 @@ That's it! The game is already hosted and ready to play.
 
 ---
 
-### Method 2: VS Code for the Web (If You Want to Edit Code)
+### First Time? Create Your Own Copy
 
-1. **Open VS Code for the Web**
+If you want to make your own version or edit the code:
+
+1. **Create a GitHub Account** (if you don't have one)
+   - Go to [github.com/signup](https://github.com/signup)
+   - Follow the steps to create your free account
+   - Verify your email address
+
+2. **Fork This Repository**
+   - Make sure you're logged into GitHub
+   - Visit: [github.com/tannerpace/t-mobile](https://github.com/tannerpace/t-mobile)
+   - Click the **Fork** button in the top-right corner
+   - Click **Create fork**
+   - Now you have your own copy at `github.com/YOUR-USERNAME/t-mobile`
+
+3. **Enable GitHub Pages** (to host your version)
+   - In your forked repository, click **Settings**
+   - Click **Pages** in the left sidebar
+   - Under "Source", select **main** branch
+   - Click **Save**
+   - Wait 1-2 minutes, then visit: `https://YOUR-USERNAME.github.io/t-mobile/`
+
+Now you can play your own hosted version!
+
+---
+
+### Method 2: VS Code for the Web (Edit Code in Your Browser)
+
+**Prerequisites:** You need a GitHub account and to fork the repo (see "First Time?" section above)
+
+1. **Open Your Forked Repository in VS Code**
    - Go to [vscode.dev](https://vscode.dev) in your Chrome browser
    - Sign in with your GitHub account
-
-2. **Open This Repository**
    - Press `Ctrl + O`
    - Select "Open Remote Repository"
-   - Type: `tannerpace/t-mobile`
+   - Type: `YOUR-USERNAME/t-mobile` (use your GitHub username)
    - Press Enter
 
 3. **Install Live Preview Extension (One-time setup)**
@@ -45,21 +72,17 @@ That's it! The game is already hosted and ready to play.
 
 **Quick Link:** Open directly at:
 ```
-https://vscode.dev/github/tannerpace/t-mobile
+https://vscode.dev/github/YOUR-USERNAME/t-mobile
 ```
+(Replace `YOUR-USERNAME` with your GitHub username)
 
----
-
-### Setting Up GitHub Pages (For Repository Owners)
-
-If you forked this repo and want your own hosted version:
-
-1. Go to your repository on GitHub
-2. Click **Settings** → **Pages** (in the left sidebar)
-3. Under "Source", select **main** branch
-4. Click **Save**
-5. Wait 1-2 minutes for deployment
-6. Visit: `https://YOUR-USERNAME.github.io/t-mobile/`
+5. **Make Changes and Save**
+   - Edit any files in VS Code
+   - Click the Source Control icon (branch icon) on the left
+   - Enter a commit message describing your changes
+   - Click the checkmark to commit
+   - Click "Sync Changes" to push to GitHub
+   - Your changes will appear on your GitHub Pages site in 1-2 minutes!
 
 ## How to Play
 
