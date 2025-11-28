@@ -84,6 +84,33 @@ https://vscode.dev/github/YOUR-USERNAME/t-mobile
    - Click "Sync Changes" to push to GitHub
    - Your changes will appear on your GitHub Pages site in 1-2 minutes!
 
+---
+
+### Keeping Your Fork Up to Date
+
+If the original repository gets updates, you can sync your fork:
+
+**On GitHub (Easiest):**
+1. Go to your forked repository: `github.com/YOUR-USERNAME/t-mobile`
+2. You'll see a message if your fork is behind: "This branch is X commits behind tannerpace:main"
+3. Click **Sync fork** button
+4. Click **Update branch**
+5. Done! Your fork now has the latest updates
+
+**In VS Code for the Web:**
+1. Open your fork in vscode.dev
+2. Open the Terminal: View → Terminal (or press `` Ctrl + ` ``)
+3. Run these commands:
+   ```bash
+   git remote add upstream https://github.com/tannerpace/t-mobile.git
+   git fetch upstream
+   git merge upstream/main
+   ```
+4. Click "Sync Changes" to push the updates to your fork
+5. Your GitHub Pages site will update automatically
+
+---
+
 ## How to Play
 
 - Press **SPACE** or **↑ (Up Arrow)** to jump
