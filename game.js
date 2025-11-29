@@ -35,6 +35,7 @@ const dino = {
 
   draw() {
     // Draw T-Rex emoji
+    ctx.fillStyle = '#000000';
     ctx.font = `${this.height}px serif`;
     ctx.textBaseline = 'top';
     ctx.fillText('🦖', this.x, this.y);
@@ -85,6 +86,7 @@ class Obstacle {
 
   draw() {
     // Draw palm tree emoji
+    ctx.fillStyle = '#000000';
     ctx.font = `${this.height}px serif`;
     ctx.textBaseline = 'top';
     ctx.fillText('🌴', this.x, this.y);
