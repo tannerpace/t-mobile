@@ -34,11 +34,15 @@ const dino = {
   jumping: false,
 
   draw() {
-    // Draw T-Rex emoji
+    // Draw T-Rex emoji (flipped horizontally to face right)
+    ctx.save();
     ctx.fillStyle = '#000000';
     ctx.font = `${this.height}px serif`;
     ctx.textBaseline = 'top';
-    ctx.fillText('🦖', this.x, this.y);
+    ctx.translate(this.x + this.width, this.y);
+    ctx.scale(-1, 1);
+    ctx.fillText('🦖', 0, 0);
+    ctx.restore();
   },
 
   update() {
