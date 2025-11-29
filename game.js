@@ -22,12 +22,6 @@ jumpSound.volume = 0.5;
 const powerUpSound = new Audio('yum yum.m4a');
 powerUpSound.volume = 0.5;
 
-// Load images
-const trexImg = new Image();
-trexImg.src = 'trex.png';
-const palmImg = new Image();
-palmImg.src = 'palm.png';
-
 // Dino object
 const dino = {
   x: 50,
@@ -40,14 +34,15 @@ const dino = {
   jumping: false,
 
   draw() {
-    // Draw T-Rex image
-    if (trexImg.complete) {
-      ctx.drawImage(trexImg, this.x, this.y, this.width, this.height);
-    } else {
-      // Fallback while image loads
-      ctx.fillStyle = '#535353';
-      ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
+    // Draw T-Rex emoji (flipped horizontally to face right)
+    ctx.save();
+    ctx.fillStyle = '#000000';
+    ctx.font = `${this.height}px serif`;
+    ctx.textBaseline = 'top';
+    ctx.translate(this.x + this.width, this.y);
+    ctx.scale(-1, 1);
+    ctx.fillText('🦖', 0, 0);
+    ctx.restore();
   },
 
   update() {
@@ -94,14 +89,11 @@ class Obstacle {
   }
 
   draw() {
-    // Draw palm tree image
-    if (palmImg.complete) {
-      ctx.drawImage(palmImg, this.x, this.y, this.width, this.height);
-    } else {
-      // Fallback while image loads
-      ctx.fillStyle = '#535353';
-      ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
+    // Draw palm tree emoji
+    ctx.fillStyle = '#000000';
+    ctx.font = `${this.height}px serif`;
+    ctx.textBaseline = 'top';
+    ctx.fillText('🌴', this.x, this.y);
   }
 
   update() {
